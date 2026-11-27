@@ -1,18 +1,24 @@
 Christmas Tree v17.6 / Grand Luxury Tree v17.6.5
 
-网页入口：index.html。页面源代码为单文件，不需要编译。
-联网加载 Three.js、MediaPipe 和相关模型；不是完全离线网页。
-GitHub Pages 部署后使用 HTTPS，适合手机分享与摄像头手势。
+网页入口：index.html。发布文件已构建好，无需再次编译。
+圣诞树和 Three.js 已打包在 HTML 内，首次显示无需外部 CDN、字体服务或手势模型。
+点击“开启手势”才加载同目录的 MediaPipe 和模型，并请求摄像头权限。
+手势资源加载失败不影响圣诞树、按钮和键盘操作。
+GitHub Pages 使用 HTTPS；具体访问速度仍受访客网络影响。
 
 使用方法
 1. 空格键：聚合；Z：散开；X：抓取照片；方向键：旋转。
 2. 手机端可使用底部按钮，单指拖动旋转，双指缩放。
 3. 左侧可修改祝福语、字体、粒子，选择照片及 MP3 音乐。
 4. 照片、音乐和设置保存在当前浏览器中，不会自动同步到其他人的设备。
-5. 手势控制需用户允许摄像头；不用摄像头也能用按钮和键盘。
+5. 手势控制需点击“开启手势”并允许摄像头；不用摄像头也能用按钮和键盘。
+6. 浏览器无法开启 3D 或启动失败时，页面会显示原因和“重新加载”按钮。
 
 GitHub Pages 部署
-将 index.html 和 .nojekyll 放在仓库 main 分支根目录。
+将压缩包内全部文件一起放在仓库 main 分支根目录，不要只上传 index.html。
+手势文件：vision_bundle.mjs、vision_wasm_internal.js、vision_wasm_internal.wasm、
+vision_wasm_nosimd_internal.js、vision_wasm_nosimd_internal.wasm、hand_landmarker.task。
+保留 .nojekyll、THIRD_PARTY_LICENSES.txt 和本说明文件。
 进入 Settings → Pages → Deploy from a branch → main → /(root) → Save。
 最终地址由 GitHub Pages 设置页给出。
 官方说明：https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
@@ -22,4 +28,7 @@ GitHub Pages 部署
 源版本：e9968a1248abb85768b45b501aed0e4c393501e7
 原文：https://my.feishu.cn/wiki/XJlawBeOOiBFStk7yAfcYYcXngk
 原文注明：仅供个人娱乐/学习，请勿进行商业买卖。
-本交付保留仓库原始 HTML，没有改动项目功能，也没有额外授予开源许可。
+本版本基于上述源版本修复启动加载：内联 Three.js、移除远程字体、同源托管手势资源、
+手势改为按需开启，并增加启动失败提示。没有额外授予原项目开源许可。
+第三方组件：Three.js 0.160.0（MIT）、MediaPipe Tasks Vision 0.10.3（Apache-2.0）。
+第三方许可和手势模型来源详见 THIRD_PARTY_LICENSES.txt。
