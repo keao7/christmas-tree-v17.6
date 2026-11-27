@@ -1,5 +1,7 @@
 Christmas Tree v17.6 / Grand Luxury Tree v17.6.5
 
+当前主题：粉色。圣诞树装饰、灯光、标题、按钮与相框采用粉色配色。
+
 网页入口：index.html。发布文件已构建好，无需再次编译。
 圣诞树和 Three.js 已打包在 HTML 内，首次显示无需外部 CDN、字体服务或手势模型。
 点击“开启手势”才加载同目录的 MediaPipe 和模型，并请求摄像头权限。
